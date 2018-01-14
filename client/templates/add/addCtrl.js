@@ -46,7 +46,6 @@ angular.module('myApp').controller('addCtrl', function($scope, $http, $state, ge
         function pad(s) { return (s < 10) ? '0' + s : s; }
         var d = new Date(inputFormat);
         var date = [d.getFullYear(), pad(d.getMonth() + 1), pad(d.getDate())].join('-');
-        console.log(date);
         return date;
     }
 
@@ -60,7 +59,7 @@ angular.module('myApp').controller('addCtrl', function($scope, $http, $state, ge
             address.PinCode = null;
             $scope.addObj.Addresses.push(address);
         } else {
-            swal("Cannot be added");
+            swal('Error', "You can add maximum 3 addresses.", 'error');
         }
     };
 
@@ -69,7 +68,7 @@ angular.module('myApp').controller('addCtrl', function($scope, $http, $state, ge
         if ($scope.addObj.Addresses.length != 1) {
             $scope.addObj.Addresses.splice($index, 1);
         } else {
-            swal("Cannot be deleted");
+            swal('Error', "You should have minimum 1 address.", 'error');
         }
     };
 
@@ -90,7 +89,7 @@ angular.module('myApp').controller('addCtrl', function($scope, $http, $state, ge
 
         genericService.httpPostCall(serverUrl, '/saveCustomer', $scope.addObj).then(function(res) {
             if (!res.data.err) {
-                swal(res.data.result);
+                swal('Success', res.data.result, 'success');
                 $state.go('view');
             }
         });

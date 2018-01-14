@@ -11,12 +11,24 @@ angular.module('myApp').controller('viewCtrl', function($scope, $http, genericSe
     });
 
     $scope.deleteCustomer = function(index, email) {
-        $scope.customerList.splice(index, 1);
-        genericService.httpPostCall(serverUrl, '/deleteCustomer', { 'email': email }).then(function(res) {
-            if (!res.data.err) {
-                swal("Deleted successfully");
-            } else {
-                swal("Error in deleting customer");
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $scope.customerList.splice(index, 1);
+                genericService.httpPostCall(serverUrl, '/deleteCustomer', { 'email': email }).then(function(res) {
+                    if (!res.data.err) {
+                        swal('Deleted!', 'Your file has been deleted.', 'success');
+                    } else {
+                        swal('Error', 'Error in deleting customer', 'error');
+                    }
+                });
             }
         });
     }
@@ -44,7 +56,7 @@ angular.module('myApp').controller('viewCtrl', function($scope, $http, genericSe
     }
 
     $scope.runScript = function() {
-        // first create at least 3 customers
+        // first create at least 2 customers
         // click this button only once when at least there are 2 customers,
         // so that dynamic customer id's can be inserted in the bills
 
@@ -56,7 +68,7 @@ angular.module('myApp').controller('viewCtrl', function($scope, $http, genericSe
         genericService.httpGetCall(serverUrl, '/createDefaultBills').then(function(res) {
             if (!res.data.err) {
                 $scope.runScript = 0;
-                swal("Default bills created");
+                swal('Success', 'Default bills created', 'success');
             }
         });
     }
