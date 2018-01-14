@@ -17,7 +17,7 @@ exports.fetchCustomers = function() {
 
 exports.searchCustomer = function(id) {
     var deferred = Q.defer();
-    customer.find({ $or: [{ "Name": { "$regex": id, "$options": "i" } }, { "Email": { "$regex": id, "$options": "i" } }, { "Mobile": { "$regex": id, "$options": "i" } }, { "Phone": { "$regex": id, "$options": "i" } }] }).exec(function(err, result) {
+    customer.find({ $or: [{ "Name": { "$regex": id, "$options": "i" } }, { "Addresses.Flat": { "$regex": id, "$options": "i" } }, { "Addresses.Street": { "$regex": id, "$options": "i" } }, { "Addresses.State": { "$regex": id, "$options": "i" } }, { "Addresses.PinCode": { "$regex": id, "$options": "i" } }, { "Email": { "$regex": id, "$options": "i" } }, { "Mobile": { "$regex": id, "$options": "i" } }, { "Phone": { "$regex": id, "$options": "i" } }] }).exec(function(err, result) {
         deferred.resolve({
             err: err,
             result: result
