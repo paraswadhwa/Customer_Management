@@ -1,0 +1,30 @@
+<div class="row marginTop30">
+    <div class="col">
+        <center>
+            <table class="table table-striped table-bordered" style="width:90%;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>No Of Bills</th>
+                        <th>Amount</th>
+                        <th>Avg. Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in customerDetails">
+                        <td>{{x.Name}}</td>
+                        <td>{{x.Mobile}}</td>
+                        <td>{{x.Phone}}</td>
+                        <td>{{x.Email}}</td>
+                        <td>{{x.billDetails.length}}</td>
+                        <td>{{x.Amount | number : 2}}</td>
+                        <td>{{x.Amount/x.billDetails.length | number : 2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
+</div>

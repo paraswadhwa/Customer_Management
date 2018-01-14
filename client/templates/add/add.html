@@ -1,0 +1,91 @@
+<form name="customerForm">
+    <div class="row marginTop30">
+        <div class="col-md-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Enter Name" class="form-control" name="name" required ng-model="addObj.Name">
+            </div>
+            <span class="error" ng-show="customerForm.name.$error.required && customerForm.name.$dirty">Required</span>
+        </div>
+        <div class="col-md-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="number" ng-minlength="10" ng-maxlength="10" placeholder="Enter Mobile" class="form-control" required ng-model="addObj.Mobile" name="mobile">
+            </div>
+            <span class="error" ng-show="customerForm.mobile.$error.maxlength || customerForm.mobile.$error.minlength">Should be of 10 digits</span>
+        </div>
+    </div>
+    <div class="row marginTop10">
+        <div class="col-md-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="number" ng-minlength="7" ng-maxlength="11" placeholder="Enter Contact No." class="form-control" ng-model="addObj.Phone" name="phone" required>
+            </div>
+            <span class="error" ng-show="customerForm.phone.$error.maxlength || customerForm.phone.$error.minlength">Should be between 7 to 11 digits</span>
+        </div>
+        <div class="col-md-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" placeholder="Enter Email" class="form-control" ng-model="addObj.Email" name="email" ng-readonly="edit==1" required>
+            </div>
+            <span class="error" ng-show="customerForm.email.$error.required && customerForm.email.$dirty">Required</span>
+        </div>
+    </div>
+    <div class="row marginTop10">
+        <div class="col-md-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="address">Address:</label>
+            </div>
+        </div>
+    </div>
+    <div class="row marginTop10" ng-repeat="x in addObj.Addresses">
+        <div class="col-md-offset-1 col-md-2">
+            <div class="form-group">
+                <label for="flat">Flat:</label>
+                <input type="text" placeholder="Flat No." class="form-control" ng-model="x.Flat">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="street">Street:</label>
+                <input type="text" placeholder="Enter street" class="form-control" ng-model="x.Street">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" placeholder="Enter state" class="form-control" ng-model="x.State">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="pincode">Pincode:</label>
+                <input type="text" placeholder="Enter Pincode" class="form-control" ng-model="x.PinCode">
+            </div>
+        </div>
+        <div class="col-md-1 marginTop25">
+            <div class="form-group">
+                <button ng-click="Add()" type="button" class="btn btn-default">Add</button>
+            </div>
+        </div>
+        <div class="col-md-1 marginTop25">
+            <div class="form-group">
+                <button ng-click="Remove($index)" type="button" class="btn btn-default">Remove</button>
+            </div>
+        </div>
+    </div>
+    <div class="row marginTop10">
+        <div class="col-md-offset-1 col-md-4">
+            <div class="form-group">
+                <label for="pwd">Date Of Birth:</label>
+                <input type="date" class="form-control" ng-model="addObj.DOB" ng-readonly="edit==1" required name="DOB">
+            </div>
+            <span class="error" ng-show="customerForm.DOB.$error.required && customerForm.DOB.$dirty">Required</span>
+        </div>
+    </div>
+    <div class="row marginTop10">
+        <div class="col-md-offset-5">
+            <button type="button" class="btn btn-default" ng-click="saveCustomer();" ng-disabled="customerForm.$invalid">Submit</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,52 @@
+<div class="row marginTop30">
+    <div class="col-md-2" style="text-align:center;">
+        <button type="button" class="btn btn-default" ng-click="runScript();">Run Script</button>
+    </div>
+    <div class="col-md-offset-3 col-md-1">
+        <div ng-class="{loader: runScript==1}"></div>
+    </div>
+    <div class="col-md-offset-2 col-md-2">
+        <div class="form-group">
+            <input type="text" placeholder="Search" class="form-control" ng-model="search">
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button type="button" class="btn btn-default modifiedBtn" ng-click="searchCustomer();">Search</button>
+    </div>
+</div>
+<div class="row marginTop30">
+    <div class="col">
+        <center>
+            <table class="table table-striped table-bordered" style="width:90%;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in customerList">
+                        <td>{{x.Name}}</td>
+                        <td>{{x.Mobile}}</td>
+                        <td>{{x.Email}}</td>
+                        <td>{{x.DOB | date}}</td>
+                        <td>{{x.Phone}}</td>
+                        <td>{{x.Addresses[0].Flat +" , "+ x.Addresses[0].Street + " , "+x.Addresses[0].PinCode+ " , "+x.Addresses[0].State}}</td>
+                        <td>
+                            <button type="button" class="btn btn-default modifiedBtn" ng-click="editCustomer(x.Email)">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default modifiedBtn" ng-click="deleteCustomer($index,x.Email)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
+</div>

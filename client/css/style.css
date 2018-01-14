@@ -1,0 +1,97 @@
+.marginTop50 {
+    margin-top: 50px;
+}
+
+.marginTop30 {
+    margin-top: 30px;
+}
+
+.marginTop20 {
+    margin-top: 20px;
+}
+
+.marginTop25 {
+    margin-top: 25px;
+}
+
+.marginTop10 {
+    margin-top: 10px;
+}
+
+.modifiedBtn {
+    width: 85px;
+}
+
+#sidebar-wrapper {
+    top: 52px;
+    left: -200px;
+    width: 200px;
+    background-color: #5677fc;
+    color: white;
+    position: fixed;
+    height: 100%;
+    z-index: 1;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 30px;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 50px;
+}
+
+.sidebar-nav li a {
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+#sidebar-wrapper.sidebar-toggle {
+    transition: all 0.3s ease-out;
+    margin-left: -200px;
+}
+
+#sidebar-wrapper.sidebar-toggle {
+    transition: 0s;
+    left: 200px;
+}
+
+.error {
+    color: red;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
