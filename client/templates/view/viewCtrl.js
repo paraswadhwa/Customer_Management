@@ -45,8 +45,13 @@ angular.module('myApp').controller('viewCtrl', function($scope, $http, genericSe
 
     $scope.runScript = function() {
         // first create at least 3 customers
-        // click this button only once when at least there are 3 customers,
+        // click this button only once when at least there are 2 customers,
         // so that dynamic customer id's can be inserted in the bills
+
+        if ($scope.customerList.length < 2) {
+            swal('Please create at least 2 customers');
+            return false;
+        }
         $scope.runScript = 1;
         genericService.httpGetCall(serverUrl, '/createDefaultBills').then(function(res) {
             if (!res.data.err) {
