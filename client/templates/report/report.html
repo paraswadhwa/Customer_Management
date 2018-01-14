@@ -1,7 +1,7 @@
 <div class="row marginTop30">
     <div class="col">
         <center>
-            <table class="table table-striped table-bordered" style="width:90%;">
+            <table class="table table-striped table-bordered" style="width:90%;" ng-show="customerDetails.length>0">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -25,6 +25,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="noRecords" ng-show="customerDetails.length==0">
+                No records found to display
+            </div>
         </center>
     </div>
 </div>
