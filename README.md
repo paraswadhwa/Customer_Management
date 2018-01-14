@@ -1,4 +1,4 @@
-  --------------  Customer Management Project----------------
+Customer Management Project
 
  Steps to run the project -
 
