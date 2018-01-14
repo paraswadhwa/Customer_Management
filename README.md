@@ -40,10 +40,10 @@ Customer Management Project
 
  Run Script Button on View Customer Module-
 
- Pre condition : You should click this button when there are at least 3  				 customers.As bill generation requires customer id from 			    customer table.
+ Pre condition : You should click this button when there are at least 2  				 customers.As bill generation requires customer id from 			    customer table.
 
  1. Click on this button will generate 1000 bills.
  2. Bills generated will have dynamic values of multiple fields.
  3. Customer Id will be fetched randomly from the customer table.
- 4. Bill number will contain an auto incrmeented field value.
+ 4. Bill number will contain an auto incremented field value.
  5. Menu Items are fetched randomly from 1 to 10.

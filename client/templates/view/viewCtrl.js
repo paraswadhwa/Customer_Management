@@ -1,4 +1,4 @@
-angular.module('myApp').controller('viewCtrl', function($scope, $http, genericService, $state) {
+angular.module('myApp').controller('viewCtrl', function($scope, $http, genericService, $state, $filter) {
     var serverUrl = "http://localhost:3000";
     $scope.runScript = 0;
 
