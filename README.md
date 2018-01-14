@@ -22,12 +22,14 @@ Customer Management Project
  View Customer Module -
 
  1. This will display all the customer details created by you in the form  
-    of a table
- 2. Search button on the top right will help you to filter records on the 
-    basis of a no. of fields such as name,mobile,phone,email.
- 3. Clicking on the delete button corresponding to any row will delete the 
+    of a table.
+ 2. Search button on the top right will help you to filter records from 
+    the server side on the basis of a no. of fields such as name,mobile,phone,email.
+ 3. Datatables are used to implement pagination.Maximum 5 records 
+    are displayed on a single page.
+ 4. Clicking on the delete button corresponding to any row will delete the 
     customer from the database.
- 4. Click on edit button will take you to the add form with all your 
+ 5. Click on edit button will take you to the add form with all your 
     details prefetched. You can change any value inside that and click submit , which will update your values.
 
  Report Module -
@@ -37,6 +39,8 @@ Customer Management Project
  2. Aggregation framework($lookup) is used here to fetch data from 
     multiple collections.
  3. Amount and average amount are calculated after applying some formulas.
+ 4. Datatables are used to implement pagination.Maximum 5 records 
+    are displayed on a single page.
 
  Run Script Button on View Customer Module-
 
