@@ -24,7 +24,7 @@ Customer Management Project
  1. This will display all the customer details created by you in the form  
     of a table.
  2. Search button on the top right will help you to filter records from 
-    the server side on the basis of a no. of fields such as name,mobile,phone,email.
+    the server side on the basis of a no. of fields such as name,mobile,phone,email,address.
  3. Datatables are used to implement pagination.Maximum 5 records 
     are displayed on a single page.
  4. Clicking on the delete button corresponding to any row will delete the 

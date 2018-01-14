@@ -22,7 +22,7 @@ angular.module('myApp').controller('reportCtrl', function(DTOptionsBuilder, DTCo
                 var quantity = y.Items.length;
                 var discountAmt = calculateDiscountAmt(sumOfRate, quantity, y.Discount);
                 var taxAmt = calculateTaxAmt(discountAmt, y.Tax);
-                totalAmt = totalAmt + sumOfRate * quantity - discountAmt + taxAmt;
+                totalAmt = totalAmt + (sumOfRate * quantity - discountAmt + taxAmt);
             });
             x['Amount'] = totalAmt;
         });
