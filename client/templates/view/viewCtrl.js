@@ -1,6 +1,13 @@
-angular.module('myApp').controller('viewCtrl', function($scope, $http, genericService, $state, $filter) {
+angular.module('myApp').controller('viewCtrl', function(DTOptionsBuilder, DTColumnBuilder, $scope, $http, genericService, $state, $filter) {
     var serverUrl = "http://localhost:3000";
     $scope.runScript = 0;
+
+    $scope.dtOptions = DTOptionsBuilder.newOptions()
+        .withOption('paging', true)
+        .withOption('searching', false)
+        .withPaginationType('full_numbers')
+        .withDisplayLength(5)
+        .withOption('lengthChange', false);
 
     genericService.httpGetCall(serverUrl, '/fetchCustomers').then(function(res) {
         if (!res.data.err) {

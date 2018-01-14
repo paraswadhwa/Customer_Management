@@ -14,10 +14,10 @@
         <button type="button" class="btn btn-default modifiedBtn" ng-click="searchCustomer();">Search</button>
     </div>
 </div>
-<div class="row marginTop30">
+<div class="row marginTop30" style="width:95%;">
     <div class="col">
         <center>
-            <table ng-show="customerList.length>0" class="table table-striped table-bordered" style="width:90%;">
+            <table datatable="ng" dt-options="dtOptions" ng-show="customerList.length>0" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>Name</th>

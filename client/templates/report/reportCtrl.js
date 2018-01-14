@@ -1,10 +1,17 @@
-angular.module('myApp').controller('reportCtrl', function($scope, $http, $state, genericService) {
+angular.module('myApp').controller('reportCtrl', function(DTOptionsBuilder, DTColumnBuilder, $scope, $http, $state, genericService) {
     var serverUrl = "http://localhost:3000";
     // this will fetch all details of the customer.
     genericService.httpGetCall(serverUrl, '/fetchCustomerDetails').then(function(res) {
         $scope.customerDetails = res.data;
         calculateAmt();
     });
+
+    $scope.dtOptions = DTOptionsBuilder.newOptions()
+        .withOption('paging', true)
+        .withOption('searching', false)
+        .withPaginationType('full_numbers')
+        .withDisplayLength(5)
+        .withOption('lengthChange', false);
 
     function calculateAmt() {
         //amt of each bill - sum of Rate * Quantity of Each Bill– discount amount + Tax  amount

@@ -1,4 +1,4 @@
- var app = angular.module('myApp', ['ui.router']);
+ var app = angular.module('myApp', ['ui.router','datatables']);
 
  // advantage of ui router is without even changing url u can change page through state
  app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
